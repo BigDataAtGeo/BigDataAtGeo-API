@@ -4,7 +4,9 @@ import time
 import pandas as pd
 from geojson import GeometryCollection, Feature, FeatureCollection, Point  # Polygon
 from flask import Flask, request, Response, jsonify
+from flask_caching import Cache
 from flask_compress import Compress
+from flask_cors import CORS
 
 from model import CSVDict, DictKey
 
@@ -15,14 +17,23 @@ path = os.environ['BDATG_REST_API_PATH']
 
 csv_dict = CSVDict(path)
 
+config = {
+    'DEBUG': False,
+    'CACHE_TYPE': 'simple',
+    'CACHE_DEFAULT_TIMEOUT': 60*60*24
+}
+
 app = Flask(__name__)
+app.config.from_mapping(config)
+cache = Cache(app)
 Compress(app)
+CORS(app)  # , resources={r"/*": {"origins": "*"}})
 
 
 def build_feature(row: pd.Series, data_col: str, prop_name: str = 'temperature') -> Feature:
     # print('BUILD FEATURES')
     # t0 = time.time()
-    loc = (row['lat'], row['lon'])
+    loc = (row['lon'], row['lat'])
     # t1 = time.time()
     # print('resolve loc -', t1-t0)
     # Find column that is not 'lat' or 'lon', since this one contains the data
@@ -50,6 +61,7 @@ def pandas_to_geojson(data: pd.DataFrame, data_col: str, prop_name: str = 'tempe
 
 
 @app.route('/all_locations/<scenario>/<var>/<timerange>', methods=['GET'])
+@cache.cached()
 def all_locations(scenario: str, var: str, timerange: str) -> Response:
     key = DictKey(var=var, scenario=scenario)
     data = csv_dict[key]
