@@ -1,3 +1,5 @@
 flask
+flask-compress
 pandas
+gevent
 geojson

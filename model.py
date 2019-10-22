@@ -27,16 +27,18 @@ class CSVDict(dict):
 
     def _load_data(self, key: DictKey) -> None:
         data = pd.read_csv(join(self.path, key.get_filename()), skipinitialspace=True)
-        self.__dict__[key] = data
+        # Reduce the number of decimal places (especially for gps coordinates) to reduce size in json
+        data = data.round(4)
+        self.__dict__[repr(key)] = data
 
     def __setitem__(self, key, item):
-        self.__dict__[key] = item
+        self.__dict__[repr(key)] = item
 
     def __getitem__(self, key):
-        if key not in self.__dict__:
-            logger.info(f'Key not found. Loading {repr(key)}.')
+        if repr(key) not in self.__dict__:
+            print(f'Key not found. Loading {repr(key)}.')
             self._load_data(key)
-        return self.__dict__[key]
+        return self.__dict__[repr(key)]
 
     def __repr__(self):
         return repr(self.__dict__)
@@ -45,7 +47,7 @@ class CSVDict(dict):
         return len(self.__dict__)
 
     def __delitem__(self, key):
-        del self.__dict__[key]
+        del self.__dict__[repr(key)]
 
     def clear(self):
         return self.__dict__.clear()

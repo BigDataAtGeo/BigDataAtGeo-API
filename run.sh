@@ -1,3 +1,4 @@
 export FLASK_APP=app.py
 export BDATG_REST_API_PATH=data
-flask run
+# flask run
+python3 run.py
