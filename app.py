@@ -39,7 +39,10 @@ var_dict = {
 def build_feature(row: pd.Series, data_col: str, prop_name: str = 'temperature') -> Feature:
     loc = (row['lon'], row['lat'])
     geom = Point((loc[0], loc[1]))
-    f = Feature(geometry=geom, properties={'value': row[data_col]})
+    f = Feature(geometry=geom, properties={
+        'id': row['id'],
+        'value': row[data_col]
+        })
     return f
 
 
@@ -54,7 +57,26 @@ def pandas_to_geojson(data: pd.DataFrame, data_col: str, prop_name: str = 'tempe
 def all_locations(scenario: str, var: str, timerange: str) -> Response:
     key = DictKey(var=var, scenario=scenario)
     data = csv_dict[key]
-    return pandas_to_geojson(data[['lon', 'lat', timerange]], data_col=timerange, prop_name=var)
+    return pandas_to_geojson(data[['id', 'lon', 'lat', timerange]], data_col=timerange, prop_name=var)
+
+
+@app.route('/all_times/<int:cell_id>/<scenario>/<var>', methods=['GET'])
+@cache.cached()
+def all_times(cell_id: int, scenario: str, var: str) -> Response:
+    key = DictKey(var=var, scenario=scenario)
+    data = csv_dict[key]
+    row = data.iloc[cell_id]
+    keys = sorted([c for c in row.index if c not in ['id', 'lat', 'lon']])
+
+    resp = {
+        'lat': row['lat'],
+        'lon': row['lon'],
+        'data': {
+            'keys': keys,
+            'values':  row[keys].to_list()
+        }
+    }
+    return jsonify(resp)
 
 
 @app.route('/index', methods=['GET'])

@@ -26,7 +26,9 @@ class CSVDict(dict):
         self.path = path
 
     def _load_data(self, key: DictKey) -> None:
-        data = pd.read_csv(join(self.path, key.get_filename()), skipinitialspace=True)
+        data = pd.read_csv(join(self.path, key.get_filename()), skipinitialspace=True).dropna(axis=1)
+        # Store the row number as the id for each cell/row
+        data['id'] = range(len(data))  # data.index
         # Reduce the number of decimal places (especially for gps coordinates) to reduce size in json
         data = data.round(4)
         self.__dict__[repr(key)] = data
