@@ -31,8 +31,8 @@ Compress(app)
 CORS(app)
 
 var_dict = {
-    'pr': 'Mittlerer Jahresniederschlag',
-    'tas': 'Mittlere Jahrestemperatur'
+    'pr': ('Mittlerer Jahresniederschlag', 'mm/qm'),
+    'tas': ('Mittlere Jahrestemperatur', '°C')
 }
 
 
@@ -93,7 +93,7 @@ def index() -> str:
     scenarios = list(set([f[4] for f in files]))
     # Find all unique variables
     variables = list(set([f[0] for f in files]))
-    variables = [{'var_id': v, 'var': var_dict[v]} for v in variables]
+    variables = [{'var_id': v, 'var': var_dict[v][0], 'unit': var_dict[v][1]} for v in variables]
 
     file_infos = {
                     'variables': variables,
