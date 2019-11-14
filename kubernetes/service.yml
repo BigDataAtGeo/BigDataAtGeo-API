@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: bdatg-rest-api
+  namespace: bigdata–at-geo
+spec:
+  type: NodePort
+  ports:
+  - protocol: TCP
+    port: 5000
+    targetPort: 5000
+    name: bdatg-rest-api-port
+  selector:
+    app: bdatg-rest-api

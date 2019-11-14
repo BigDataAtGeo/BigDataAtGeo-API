@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bdatgeo-rest-api
+  namespace: bigdata–at-geo
+spec:
+  selector:
+    matchLabels:
+      app: bdatgeo-rest-api
+  template:
+    metadata:
+      labels:
+        app: bdatgeo-rest-api
+    spec:
+      containers:
+      - image: gitlab2.informatik.uni-wuerzburg.de:4567/dmir/bigdata-at-geo/bdatgeo-rest-api:1.0.0
+        name: bdatgeo-rest-api
+        imagePullPolicy: Always
+        env:
+          - name: BDATG_REST_API_PATH
+            value: /data
+        resources:
+          requests:
+            memory: "200Mi"
+            cpu: "250m"
+          limits:
+            memory: "200Mi"
+            cpu: "250m"
+        ports:
+        - containerPort: 5000
+          name: bdatgeo-rest-api-port
+        volumeMounts:
+          - mountPath: /data
+            name: data
+        readinessProbe:
+          httpGet:
+            path: /index
+            port: bdatgeo-rest-api-port
+          initialDelaySeconds: 5
+          periodSeconds: 5
+      volumes:
+        - name: data
+          cephfs:
+            monitors:
+              - 132.187.14.16,132.187.14.17,132.187.14.19,132.187.14.20
+            user: bigdata_at_geo
+            path: "/bigdata_at_geo/data"
+            secretRef:
+              name: bigdata-at-geo-ceph-secret
+      securityContext:
+        runAsUser: 1000
+        fsGroup: 1000
+      imagePullSecrets:
+        - name: gitlab-registry
