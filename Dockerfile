@@ -1,4 +1,4 @@
-FROM python:3.8-alpine
+FROM python:3.7
 
 RUN mkdir /app
 
@@ -11,9 +11,9 @@ RUN chown -R 1000:1000 /app
 
 WORKDIR /app
 
-USER 1000
-
 RUN pip install -r /app/requirements.txt
+
+USER 1000
 
 EXPOSE 5000
 

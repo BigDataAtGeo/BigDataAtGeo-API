@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: bdatgeo-rest-api
-  namespace: bigdata–at-geo
+  namespace: bigdata-at-geo
 spec:
   selector:
     matchLabels:
@@ -19,6 +19,9 @@ spec:
         env:
           - name: BDATG_REST_API_PATH
             value: /data
+          - name: FLASK_APP
+            value: app.py
+        command: [ 'python', '-u', 'run.py' ]
         resources:
           requests:
             memory: "200Mi"
@@ -28,14 +31,14 @@ spec:
             cpu: "250m"
         ports:
         - containerPort: 5000
-          name: bdatgeo-rest-api-port
+          name: api-port
         volumeMounts:
           - mountPath: /data
             name: data
         readinessProbe:
           httpGet:
             path: /index
-            port: bdatgeo-rest-api-port
+            port: api-port
           initialDelaySeconds: 5
           periodSeconds: 5
       volumes:
