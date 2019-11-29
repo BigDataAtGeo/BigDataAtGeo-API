@@ -5,3 +5,4 @@ flask-cors
 pandas
 gevent
 geojson
+SQLAlchemy

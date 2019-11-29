@@ -2,6 +2,7 @@
 import os
 import glob
 import time
+from sqlalchemy import create_engine, Table, MetaData, func
 import pandas as pd
 from geojson import GeometryCollection, Feature, FeatureCollection, Point  # Polygon
 from flask import Flask, request, Response, jsonify
@@ -9,14 +10,10 @@ from flask_caching import Cache
 from flask_compress import Compress
 from flask_cors import CORS
 
-from model import CSVDict, DictKey
-
 # parser = argparse.ArgumentParser()
 # parser.add_argument('-p', '--path', type=str, help='Path to folder with CSV files to serve.')
 # args = parser.parse_args()
 path = os.environ['BDATG_REST_API_PATH']
-
-csv_dict = CSVDict(path)
 
 config = {
     'DEBUG': False,
@@ -30,10 +27,64 @@ cache = Cache(app)
 Compress(app)
 CORS(app)
 
+engine = create_engine('sqlite://', echo=False)
+
 var_dict = {
-    'pr': ('Mittlerer Jahresniederschlag', 'mm/qm'),
-    'tas': ('Mittlere Jahrestemperatur', '°C')
+    'pr': {
+        'var': 'Mittlerer Jahresniederschlag',
+        'unit': 'mm/qm',
+        'min': float('inf'),
+        'max': -float('inf')
+    },
+    'tas': {
+        'var': 'Mittlere Jahrestemperatur',
+        'unit': '°C',
+        'min': float('inf'),
+        'max': -float('inf')
+    }
 }
+
+scenarios = set()
+variables = set()
+timeranges = set()
+
+
+def init() -> None:
+
+    files = glob.glob(os.path.join(path, '*.txt'))
+
+    # Load all files
+    for f in files:
+        parts = f.split(os.path.sep)[-1].split('_')
+        scenario = parts[4]
+        variable = parts[0]
+
+        data = pd.read_csv(f, skipinitialspace=True).dropna(axis=1)
+        # Store the row number as the id for each cell/row
+        data['id'] = range(len(data))  # data.index
+        # Reduce the number of decimal places (especially for gps coordinates) to reduce size in json
+        data = data.round(4)
+
+        data = data.melt(['id', 'lat', 'lon'], var_name='timerange', value_name='value')
+        data['var'] = variable
+        data['scenario'] = scenario
+
+        scenarios.add(scenario)
+        variables.add(variable)
+        timeranges.update(list(data['timerange']))
+
+        # Calculate Min/Max values for each variable
+        min_v = data['value'].min()
+        max_v = data['value'].max()
+
+        if var_dict[variable]['min'] > min_v:
+            var_dict[variable]['min'] = min_v
+        if var_dict[variable]['max'] < max_v:
+            var_dict[variable]['max'] = max_v
+
+        data.to_sql('data', con=engine, index=False, if_exists='append')
+
+    print('Ready')
 
 
 def build_feature(row: pd.Series, data_col: str, prop_name: str = 'temperature') -> Feature:
@@ -55,25 +106,29 @@ def pandas_to_geojson(data: pd.DataFrame, data_col: str, prop_name: str = 'tempe
 @app.route('/all_locations/<scenario>/<var>/<timerange>', methods=['GET'])
 @cache.cached()
 def all_locations(scenario: str, var: str, timerange: str) -> Response:
-    key = DictKey(var=var, scenario=scenario)
-    data = csv_dict[key]
-    return pandas_to_geojson(data[['id', 'lon', 'lat', timerange]], data_col=timerange, prop_name=var)
+    data = pd.read_sql(data_table.select().where(data_table.c.var == var)
+                                          .where(data_table.c.scenario == scenario)
+                                          .where(data_table.c.timerange == timerange), con=engine)
+
+    return pandas_to_geojson(data, data_col='value', prop_name=var)
 
 
 @app.route('/all_times/<int:cell_id>/<scenario>/<var>', methods=['GET'])
 @cache.cached()
 def all_times(cell_id: int, scenario: str, var: str) -> Response:
-    key = DictKey(var=var, scenario=scenario)
-    data = csv_dict[key]
-    row = data.iloc[cell_id]
-    keys = sorted([c for c in row.index if c not in ['id', 'lat', 'lon']])
+    data = pd.read_sql(data_table.select().where(data_table.c.var == var)
+                                          .where(data_table.c.scenario == scenario)
+                                          .where(data_table.c.id == cell_id)
+                                          .order_by(data_table.c.timerange), con=engine)
+
+    row = data.iloc[0]
 
     resp = {
         'lat': row['lat'],
         'lon': row['lon'],
         'data': {
-            'keys': keys,
-            'values':  row[keys].to_list()
+            'keys': list(data['timerange']),
+            'values':  list(data['value'])
         }
     }
     return jsonify(resp)
@@ -82,26 +137,25 @@ def all_times(cell_id: int, scenario: str, var: str) -> Response:
 @app.route('/index', methods=['GET'])
 @cache.cached()
 def index() -> str:
-    files = glob.glob(os.path.join(path, '*.txt'))
 
-    # We assume that each file has the same timeranges for now
-    file_headers = open(files[0]).readline().rstrip()
-    timeranges = [h.strip() for h in file_headers.split(',')[2:-1]]
-
-    files = [f.split(os.path.sep)[-1].split('_') for f in files]
-    # Find all unique scenarios
-    scenarios = list(set([f[4] for f in files]))
-    # Find all unique variables
-    variables = list(set([f[0] for f in files]))
-    variables = [{'var_id': v, 'var': var_dict[v][0], 'unit': var_dict[v][1]} for v in variables]
+    variables_dicts = [{'var_id': v,
+                        'var': var_dict[v]['var'],
+                        'unit': var_dict[v]['unit'],
+                        'min': var_dict[v]['min'],
+                        'max': var_dict[v]['max']} for v in variables]
 
     file_infos = {
-                    'variables': variables,
-                    'scenarios': scenarios,
-                    'timeranges': timeranges
+                    'variables': variables_dicts,
+                    'scenarios': list(scenarios),
+                    'timeranges': sorted(list(timeranges))
                   }
 
     return jsonify(file_infos)
+
+
+init()
+data_table = Table('data', MetaData(), autoload_with=engine)
+
 
 # @app.route('/index', methods=['GET'])
 # @cache.cached()
