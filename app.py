@@ -33,12 +33,16 @@ var_dict = {
     'pr': {
         'var': 'Mittlerer Jahresniederschlag',
         'unit': 'mm/qm',
+        'description': '',
+        'colormap': 'YlGnBu',
         'min': float('inf'),
         'max': -float('inf')
     },
     'tas': {
         'var': 'Mittlere Jahrestemperatur',
         'unit': '°C',
+        'description': '',
+        'colormap': 'Warm',
         'min': float('inf'),
         'max': -float('inf')
     }
@@ -141,6 +145,8 @@ def index() -> str:
     variables_dicts = [{'var_id': v,
                         'var': var_dict[v]['var'],
                         'unit': var_dict[v]['unit'],
+                        'description': var_dict[v]['description'],
+                        'colormap': var_dict[v]['colormap'],
                         'min': var_dict[v]['min'],
                         'max': var_dict[v]['max']} for v in variables]
 
