@@ -13,7 +13,7 @@ spec:
         app: bdatgeo-rest-api
     spec:
       containers:
-      - image: gitlab2.informatik.uni-wuerzburg.de:4567/dmir/bigdata-at-geo/bdatgeo-rest-api:1.0.0
+      - image: gitlab2.informatik.uni-wuerzburg.de:4567/dmir/bigdata-at-geo/bdatgeo-rest-api:1.1.0
         name: bdatgeo-rest-api
         imagePullPolicy: Always
         env:
@@ -24,11 +24,11 @@ spec:
         command: [ 'python', '-u', 'run.py' ]
         resources:
           requests:
-            memory: "200Mi"
-            cpu: "250m"
+            memory: "2Gi"
+            cpu: "500m"
           limits:
-            memory: "200Mi"
-            cpu: "250m"
+            memory: "2Gi"
+            cpu: "500m"
         ports:
         - containerPort: 5000
           name: api-port
