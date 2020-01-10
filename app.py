@@ -33,7 +33,7 @@ var_dict = {
     'pr': {
         'var': 'Mittlerer Jahresniederschlag',
         'unit': 'mm/qm',
-        'description': '',
+        'description': 'Absolute Niederschlagssumme (Regen und Schnee) in mm',
         'colormap': 'YlGnBu',
         'min': float('inf'),
         'max': -float('inf')
@@ -41,7 +41,87 @@ var_dict = {
     'tas': {
         'var': 'Mittlere Jahrestemperatur',
         'unit': '°C',
-        'description': '',
+        'description': 'Mittlere Lufttemperatur (in 2 Meter Höhe) in °C',
+        'colormap': 'Warm',
+        'min': float('inf'),
+        'max': -float('inf')
+    },
+    'vp_vernal': {
+        'var': 'Thermische Vegetationsperiode',
+        'unit': 'Tage',
+        'description': """ Die thermische Vegetationsperiode eines Jahres ist definiert als die Anzahl Tage zwischen
+1.) Vegetationsbeginn:  Erstes Aufkommen von mindestens 6 aufeinanderfolgenden Tagen mit einer Durchschnittstemperatur über 5°C und
+2.) Vegetationsende:    Erstes Aufkommen von mindestens 6 aufeinanderfolgenden Tagen mit einer Durchschnittstemperatur unter 5°C im Winterhalbjahr. """,
+        'colormap': 'Warm',
+        'min': float('inf'),
+        'max': -float('inf')
+    },
+    'huglin': {
+        'var': 'Huglin Index',
+        'unit': '',
+        'description': """ Ein für den Weinbau konzipierter Wärmesummenindex aus Tagesmittel- und Maximumtemperaturen im Sommerhalbjahr (April-September).
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th><em>Huglin-Index H</em></th>
+<th><em>Rebsorten</em></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>H &lt; 1500</td>
+<td>keine Anbauempfehlung</td>
+</tr>
+<tr>
+<td style="background: #d7fefe;">1500 ≤ H &lt; 1600</td>
+<td><a href="https://de.wikipedia.org/wiki/M%C3%BCller_Thurgau">Müller Thurgau</a></td>
+</tr>
+<tr>
+<td style="background: #fffc6b;">1600 ≤ H &lt; 1700</td>
+<td><a href="https://de.wikipedia.org/wiki/Pinot_Blanc">Pinot Blanc</a> ,  <a href="https://de.wikipedia.org/wiki/Grauer_Burgunder">Grauer Burgunder</a> ,  <a href="https://de.wikipedia.org/wiki/Aligot%C3%A9">Aligoté</a> ,  <a href="https://de.wikipedia.org/wiki/Gamay">Gamay</a>  Noir,  <a href="https://de.wikipedia.org/wiki/Gew%C3%BCrztraminer">Gewürztraminer</a></td>
+</tr>
+<tr>
+<td style="background: #f7c444;">1700 ≤ H &lt; 1800</td>
+<td><a href="https://de.wikipedia.org/wiki/Riesling">Riesling</a> ,  <a href="https://de.wikipedia.org/wiki/Chardonnay">Chardonnay</a> ,  <a href="https://de.wikipedia.org/wiki/Silvaner">Silvaner</a> ,  <a href="https://de.wikipedia.org/wiki/Sauvignon_Blanc">Sauvignon Blanc</a> ,  <a href="https://de.wikipedia.org/wiki/Pinot_Noir">Pinot Noir</a> ,  <a href="https://de.wikipedia.org/wiki/Gr%C3%BCner_Veltliner">Grüner Veltliner</a></td>
+</tr>
+<tr>
+<td style="background: #ed5629;">1800 ≤ H &lt; 1900</td>
+<td><a href="https://de.wikipedia.org/wiki/Cabernet_Franc">Cabernet Franc</a></td>
+</tr>
+<tr>
+<td style="background: #eb3223; color: white;">1900 ≤ H &lt; 2000</td>
+<td><a href="https://de.wikipedia.org/wiki/Chenin_Blanc">Chenin Blanc</a> ,  <a href="https://de.wikipedia.org/wiki/Cabernet_Sauvignon">Cabernet Sauvignon</a> ,  <a href="https://de.wikipedia.org/wiki/Merlot">Merlot</a> ,  <a href="https://de.wikipedia.org/wiki/Semillion">Semillion</a> ,  <a href="https://de.wikipedia.org/wiki/Welschriesling">Welschriesling</a></td>
+</tr>
+<tr>
+<td style="background: #911b12; color: white;">2000 ≤ H &lt; 2100</td>
+<td><a href="https://de.wikipedia.org/wiki/Ugni_Blanc">Ugni Blanc</a></td>
+</tr>
+<tr>
+<td  style="background: #4f0a05; color: white;">2100 ≤ H &lt; 2200</td>
+<td><a href="https://de.wikipedia.org/wiki/Grenache">Grenache</a> ,  <a href="https://de.wikipedia.org/wiki/Syrah">Syrah</a> ,  <a href="https://de.wikipedia.org/wiki/Cinsaut">Cinsaut</a></td>
+</tr>
+<tr>
+<td>2200 ≤ H &lt; 2300</td>
+<td><a href="https://de.wikipedia.org/wiki/Carignan_(Rebsorte)">Carignan</a></td>
+</tr>
+<tr>
+<td>2300 ≤ H &lt; 2400</td>
+<td><a href="https://de.wikipedia.org/wiki/Aramon">Aramon</a></td>
+</tr>
+</tbody>
+</table>
+
+Quelle für Tabelle:  [Stock, M. et al. (2007) Perspektiven der Klimaänderung bis 2050 für den Weinbau in Deutschland (Klima 2050). Schlußbericht zum FDW-Vorhaben Klima 2050. PIK Report 106.](https://www.pik-potsdam.de/research/publications/pikreports/.files/pr106.pdf)  
+Daten für Karten: MPI-ESM-REMO RCP8.5' """
+        ,
+        'colormap': 'Warm',
+        'min': float('inf'),
+        'max': -float('inf')
+    },
+    'tmin_lt_0': {
+        'var': 'Frosttage',
+        'unit': 'Tage',
+        'description': 'Anzahl der Tage, an denen die minimale Lufttemperatur unter 0°C sinkt',
         'colormap': 'Warm',
         'min': float('inf'),
         'max': -float('inf')
@@ -62,6 +142,12 @@ def init() -> None:
         parts = f.split(os.path.sep)[-1].split('_')
         scenario = parts[4]
         variable = parts[0]
+        timeframe = parts[-2]  # year, djf, jja, mam, son
+        aggregation = parts[-1]  # mean, min, max
+
+        # Ignore aggregations other than mean for now
+        if aggregation != 'mean':
+            continue
 
         data = pd.read_csv(f, skipinitialspace=True).dropna(axis=1)
         # Store the row number as the id for each cell/row
