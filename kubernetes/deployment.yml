@@ -12,6 +12,7 @@ spec:
       labels:
         app: bdatgeo-rest-api
     spec:
+      priorityClassName: infrastructure
       containers:
       - image: gitlab2.informatik.uni-wuerzburg.de:4567/dmir/bigdata-at-geo/bdatgeo-rest-api:1.2.0
         name: bdatgeo-rest-api
