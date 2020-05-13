@@ -1,11 +1,11 @@
 # import argparse
 import os
 import glob
-import time
+import math
 from collections import OrderedDict
 from sqlalchemy import create_engine, Table, MetaData, func
 import pandas as pd
-from geojson import GeometryCollection, Feature, FeatureCollection, Point  # Polygon
+from geojson import GeometryCollection, Feature, FeatureCollection, Point, Polygon
 from flask import Flask, request, Response, jsonify, abort
 from flask_caching import Cache
 from flask_compress import Compress
@@ -257,9 +257,12 @@ def init() -> None:
     print('Ready')
 
 
-def build_feature(row: pd.Series, data_col: str, prop_name: str = 'temperature') -> Feature:
-    loc = (row['lon'], row['lat'])
-    geom = Point((loc[0], loc[1]))
+def build_feature(row: pd.Series, data_col: str, prop_name: str = 'temperature', grid: bool = False) -> Feature:
+    if grid:
+        geom = point_to_polygon(row["lon"], row["lat"])
+    else:
+        geom = Point((row["lon"], row['lat']))
+
     f = Feature(geometry=geom, properties={
         'id': row['id'],
         'value': row[data_col]
@@ -267,8 +270,18 @@ def build_feature(row: pd.Series, data_col: str, prop_name: str = 'temperature')
     return f
 
 
-def pandas_to_geojson(data: pd.DataFrame, data_col: str, prop_name: str = 'temperature') -> FeatureCollection:
-    features = data.apply(lambda row: build_feature(row, data_col=data_col, prop_name=prop_name), axis=1).tolist()
+def point_to_polygon(lng, lat, raster_size_in_m: int = 1000) -> Polygon:
+    lat_accuracy = 180 * raster_size_in_m / 40075017
+    lng_accuracy = lat_accuracy / math.cos((math.pi / 180) * lat)
+    sw = lng - lng_accuracy, lat - lat_accuracy
+    se = lng - lng_accuracy, lat + lat_accuracy
+    ne = lng + lng_accuracy, lat + lat_accuracy
+    nw = lng + lng_accuracy, lat - lat_accuracy
+    return Polygon([(sw, se, ne, nw, sw)])  # five coordinates to close polygon
+
+
+def pandas_to_geojson(data: pd.DataFrame, data_col: str, prop_name: str = 'temperature', grid: bool = False) -> FeatureCollection:
+    features = data.apply(lambda row: build_feature(row, data_col=data_col, prop_name=prop_name, grid=grid), axis=1).tolist()
     # features = [build_feature(row, data_col=data_col, prop_name=prop_name) for _, row in data.iterrows()]
     return FeatureCollection(features)
 
@@ -276,14 +289,37 @@ def pandas_to_geojson(data: pd.DataFrame, data_col: str, prop_name: str = 'tempe
 @app.route('/all_locations/<scenario>/<var>/<timerange>', methods=['GET'])
 @cache.cached()
 def all_locations(scenario: str, var: str, timerange: str) -> Response:
-
     if scenario not in scenarios or var not in variables or timerange not in timeranges:
         abort(404)
 
     data = pd.read_sql(data_table.select().where(data_table.c.var == var)
                                           .where(data_table.c.scenario == scenario)
                                           .where(data_table.c.timerange == timerange), con=engine)
-    return pandas_to_geojson(data, data_col='value', prop_name=var)
+    return pandas_to_geojson(data, data_col='value', prop_name=var, grid=False)
+
+
+@app.route('/all_locations/grid/<scenario>/<var>/<timerange>', methods=['GET'])
+@cache.cached()
+def all_locations_grid(scenario: str, var: str, timerange: str) -> Response:
+    if scenario not in scenarios or var not in variables or timerange not in timeranges:
+        abort(404)
+
+    data = pd.read_sql(data_table.select().where(data_table.c.var == var)
+                                          .where(data_table.c.scenario == scenario)
+                                          .where(data_table.c.timerange == timerange), con=engine)
+    return pandas_to_geojson(data, data_col='value', prop_name=var, grid=True)
+
+
+@app.route('/all_locations/values/<scenario>/<var>/<timerange>', methods=['GET'])
+@cache.cached()
+def all_locations_values(scenario: str, var: str, timerange: str) -> Response:
+    if scenario not in scenarios or var not in variables or timerange not in timeranges:
+        abort(404)
+
+    data = pd.read_sql(data_table.select().where(data_table.c.var == var)
+                                          .where(data_table.c.scenario == scenario)
+                                          .where(data_table.c.timerange == timerange), con=engine)
+    return jsonify(dict(zip(data.id, data.value)))
 
 
 @app.route('/all_times/<int:cell_id>/<scenario>/<var>', methods=['GET'])
