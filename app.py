@@ -189,10 +189,122 @@ Quelle für Tabelle:  <a href="https://www.pik-potsdam.de/research/publications/
         'var': 'Frosttage',
         'unit': 'Tage',
         'description': 'Anzahl der Tage, an denen die minimale Lufttemperatur unter 0°C sinkt',
+        'colormap': 'YlGnBu',
+        'min': float('inf'),
+        'max': -float('inf')
+    }),
+    ('tmax_lt_0-year', {
+        'var': 'Eistage',
+        'unit': 'Tage',
+        'description': 'Anzahl der Tage, an denen die Lufttemperatur durchgehend unter 0°C liegt',
+        'colormap': 'YlGnBu',
+        'min': float('inf'),
+        'max': -float('inf')
+    }),
+    ('tmax_ge_25-year', {
+        'var': 'Sommertage',
+        'unit': 'Tage',
+        'description': 'Anzahl der Tage, an denen die Lufttemperatur mindestens einmal 25°C erreicht oder übersteigt',
         'colormap': 'Warm',
         'min': float('inf'),
         'max': -float('inf')
-    })
+    }),
+    ('tmax_ge_30-year', {
+        'var': 'Hitzetage',
+        'unit': 'Tage',
+        'description': 'Anzahl der Tage, an denen die Lufttemperatur mindestens einmal 30°C erreicht oder übersteigt',
+        'colormap': 'Warm',
+        'min': float('inf'),
+        'max': -float('inf')
+    }),
+    ('tmin_ge_20-year', {
+        'var': 'Tropennächte',
+        'unit': 'Tage',
+        'description': 'Anzahl der Tage, an denen die Lufttemperatur nicht unter 20°C fällt',
+        'colormap': 'Warm',
+        'min': float('inf'),
+        'max': -float('inf')
+    }),
+    ('pre_lt_01mm-year', {
+        'var': 'Trockentage',
+        'unit': 'Tage',
+        'description': 'Anzahl der Tage, an denen weniger als 1 mm Niederschlag fällt',
+        'colormap': 'Warm',
+        'min': float('inf'),
+        'max': -float('inf')
+    }),
+    ('pre_ge_01mm-year', {
+        'var': 'Regentage',
+        'unit': 'Tage',
+        'description': 'Anzahl der Tage, an denen mindestens 1 mm Niederschlag fällt',
+        'colormap': 'YlGnBu',
+        'min': float('inf'),
+        'max': -float('inf')
+    }),
+    ('pre_ge_10mm-year', {
+        'var': 'Regenreiche Tage',
+        'unit': 'Tage',
+        'description': 'Anzahl der Tage, an denen mindestens 10 mm Niederschlag fällt',
+        'colormap': 'YlGnBu',
+        'min': float('inf'),
+        'max': -float('inf')
+    }),
+    ('pre_ge_20mm-year', {
+        'var': 'Starkregentage',
+        'unit': 'Tage',
+        'description': 'Anzahl der Tage, an denen mindestens 20 mm Niederschlag fällt',
+        'colormap': 'YlGnBu',
+        'min': float('inf'),
+        'max': -float('inf')
+    }),
+    ('martonne-year', {
+        'var': 'Dürreindex de Martonne (Jahr)',
+        'unit': 'mm/°C',
+        'description': 'Vegetationsfeuchtemaß, das aus dem Verhältnis von Niederschlag zu Temperatur hervorgeht',
+        'colormap': 'Warm',
+        'min': float('inf'),
+        'max': -float('inf')
+    }),
+    ('martonne-amjjas', {
+        'var': 'Dürreindex de Martonne (April - September)',
+        'unit': 'mm/°C',
+        'description': 'Vegetationsfeuchtemaß, das aus dem Verhältnis von Niederschlag zu Temperatur hervorgeht',
+        'colormap': 'Warm',
+        'min': float('inf'),
+        'max': -float('inf')
+    }),
+    ('martonne-ondjfm', {
+        'var': 'Dürreindex de Martonne (Oktober - März)',
+        'unit': 'mm/°C',
+        'description': 'Vegetationsfeuchtemaß, das aus dem Verhältnis von Niederschlag zu Temperatur hervorgeht',
+        'colormap': 'Warm',
+        'min': float('inf'),
+        'max': -float('inf')
+    }),
+    ('drought_index_avg-year', {
+        'var': 'Mittlere Dauer von Trockenperioden (Jahr)',
+        'unit': 'Tage',
+        'description': 'Mittlere Dauer von Trockenperioden im Jahr. Eine Trockenperiode is eine Folge von mindestens sechs Trockentagen',
+        'colormap': 'Warm',
+        'min': float('inf'),
+        'max': -float('inf')
+    }),
+    ('drought_index_max-year', {
+        'var': 'Maximale Dauer einer Trockenperiode (Jahr)',
+        'unit': 'Tage',
+        'description': 'Maximale Dauer einer Trockenperiode im Jahr. Eine Trockenperiode is eine Folge von mindestens sechs Trockentagen',
+        'colormap': 'Warm',
+        'min': float('inf'),
+        'max': -float('inf')
+    }),
+    ('drought_index_qty-year', {
+        'var': 'Anzahl von Trockenperioden (Jahr)',
+        'unit': 'Trockenperioden',
+        'description': 'Anzahl von Trockenperioden im Jahr. Eine Trockenperiode is eine Folge von mindestens sechs Trockentagen',
+        'colormap': 'Warm',
+        'min': float('inf'),
+        'max': -float('inf')
+    }),
 ])
 
 scenarios = set()
@@ -223,6 +335,35 @@ def init() -> None:
             variable = 'vp_vernal'
         elif 'tmin_lt_0' in f:
             variable = 'tmin_lt_0'
+        elif 'tmin_ge_20' in f:
+            variable = 'tmin_ge_20'
+        elif 'tmax_lt_0' in f:
+            variable = 'tmax_lt_0'
+        elif 'tmax_ge_25' in f:
+            variable = 'tmax_ge_25'
+        elif 'tmax_ge_30' in f:
+            variable = 'tmax_ge_30'
+        elif 'pre_lt_01mm' in f:
+            variable = 'pre_lt_01mm'
+        elif 'pre_ge_01mm' in f:
+            variable = 'pre_ge_01mm'
+        elif 'pre_ge_10mm' in f:
+            variable = 'pre_ge_10mm'
+        elif 'pre_ge_20mm' in f:
+            variable = 'pre_ge_20mm'
+        elif 'martonne' in f:
+            variable = 'martonne'
+            timeframe = parts[-2]
+        elif 'drought_index' in f:
+            if 'avg' in f:
+                variable = 'drought_index_avg'
+            elif 'max' in f:
+                variable = 'drought_index_max'
+            elif 'qty' in f:
+                variable = 'drought_index_qty'
+            else:
+                print('Could not find correct drought_index variable for', f, '. skipping...')
+                continue
         else:
             # This is for tas and pr where we have data for seasons
             timeframe = parts[-2]  # year, djf, jja, mam, son
