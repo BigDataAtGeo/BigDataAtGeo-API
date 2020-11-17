@@ -112,7 +112,7 @@ var_dict = OrderedDict([
         'min': float('inf'),
         'max': -float('inf')
     }),
-    ('vp_vernal-year', {
+    ('vp_vernal_duration-year', {
         'var': 'Thermische Vegetationsperiode',
         'unit': 'Tage',
         'description': """ Die thermische Vegetationsperiode eines Jahres ist definiert als die Anzahl Tage zwischen
@@ -121,6 +121,34 @@ var_dict = OrderedDict([
 <br>
 2.) Vegetationsende:    Erstes Aufkommen von mindestens 6 aufeinanderfolgenden Tagen mit einer Durchschnittstemperatur unter 5°C im Winterhalbjahr. """,
         'colormap': 'Warm',
+        'min': float('inf'),
+        'max': -float('inf')
+    }),
+    ('vp_vernal_begin-year', {
+        'var': 'Beginn der thermischen Vegetationsperiode',
+        'unit': 'Tage',
+        'description': """ Die thermische Vegetationsperiode eines Jahres ist definiert als die Anzahl Tage zwischen
+<br>
+1.) Vegetationsbeginn:  Erstes Aufkommen von mindestens 6 aufeinanderfolgenden Tagen mit einer Durchschnittstemperatur über 5°C und
+<br>
+2.) Vegetationsende:    Erstes Aufkommen von mindestens 6 aufeinanderfolgenden Tagen mit einer Durchschnittstemperatur unter 5°C im Winterhalbjahr. """,
+        'colormap': 'Warm',
+        'min': float('inf'),
+        'max': -float('inf')
+    }),
+    ('vp_frostvernal_pfrost-year', {
+        'var': 'Spätfrostwahrscheinlichkeit',
+        'unit': '',
+        'description': 'Mittlere Wahrscheinlichkeit für Spätfrost',
+        'colormap': 'YlGnBu',
+        'min': float('inf'),
+        'max': -float('inf')
+    }),
+    ('vp_frostvernal_dfrost-year', {
+        'var': 'Spätfrostversatz',
+        'unit': 'Tage',
+        'description': 'Mittlerer zeitlicher Versatz von Spätfrösten in Tagen seit Vegetationsbeginn',
+        'colormap': 'YlGnBu',
         'min': float('inf'),
         'max': -float('inf')
     }),
@@ -193,6 +221,14 @@ Quelle für Tabelle:  <a href="https://www.pik-potsdam.de/research/publications/
         'min': float('inf'),
         'max': -float('inf')
     }),
+    ('tmin_lt_0_lastday-year', {
+        'var': 'Letzter Frosttag',
+        'unit': 'Tage',
+        'description': 'Durchschnittlich letzer Tag mit Frost im Frühjahr',
+        'colormap': 'YlGnBu',
+        'min': float('inf'),
+        'max': -float('inf')
+    }),
     ('tmax_lt_0-year', {
         'var': 'Eistage',
         'unit': 'Tage',
@@ -225,14 +261,15 @@ Quelle für Tabelle:  <a href="https://www.pik-potsdam.de/research/publications/
         'min': float('inf'),
         'max': -float('inf')
     }),
-    ('pre_lt_01mm-year', {
-        'var': 'Trockentage',
-        'unit': 'Tage',
-        'description': 'Anzahl der Tage, an denen weniger als 1 mm Niederschlag fällt',
-        'colormap': 'Warm',
-        'min': float('inf'),
-        'max': -float('inf')
-    }),
+    # Trockentage wurden letztendlich auch aus dem Klimabericht genommen
+    # ('pre_lt_01mm-year', {
+    #     'var': 'Trockentage',
+    #     'unit': 'Tage',
+    #     'description': 'Anzahl der Tage, an denen weniger als 1 mm Niederschlag fällt',
+    #     'colormap': 'Warm',
+    #     'min': float('inf'),
+    #     'max': -float('inf')
+    # }),
     ('pre_ge_01mm-year', {
         'var': 'Regentage',
         'unit': 'Tage',
@@ -258,7 +295,7 @@ Quelle für Tabelle:  <a href="https://www.pik-potsdam.de/research/publications/
         'max': -float('inf')
     }),
     ('martonne-year', {
-        'var': 'Dürreindex de Martonne (Jahr)',
+        'var': 'Dürreindex nach de Martonne (Jahr)',
         'unit': 'mm/°C',
         'description': 'Vegetationsfeuchtemaß, das aus dem Verhältnis von Niederschlag zu Temperatur hervorgeht',
         'colormap': 'Warm',
@@ -266,7 +303,7 @@ Quelle für Tabelle:  <a href="https://www.pik-potsdam.de/research/publications/
         'max': -float('inf')
     }),
     ('martonne-amjjas', {
-        'var': 'Dürreindex de Martonne (April - September)',
+        'var': 'Dürreindex nach de Martonne (April - September)',
         'unit': 'mm/°C',
         'description': 'Vegetationsfeuchtemaß, das aus dem Verhältnis von Niederschlag zu Temperatur hervorgeht',
         'colormap': 'Warm',
@@ -274,7 +311,7 @@ Quelle für Tabelle:  <a href="https://www.pik-potsdam.de/research/publications/
         'max': -float('inf')
     }),
     ('martonne-ondjfm', {
-        'var': 'Dürreindex de Martonne (Oktober - März)',
+        'var': 'Dürreindex nach de Martonne (Oktober - März)',
         'unit': 'mm/°C',
         'description': 'Vegetationsfeuchtemaß, das aus dem Verhältnis von Niederschlag zu Temperatur hervorgeht',
         'colormap': 'Warm',
@@ -282,25 +319,25 @@ Quelle für Tabelle:  <a href="https://www.pik-potsdam.de/research/publications/
         'max': -float('inf')
     }),
     ('drought_index_avg-year', {
-        'var': 'Mittlere Dauer von Trockenperioden (Jahr)',
+        'var': 'Durchschnittliche Dauer von Trockenperioden (Jahr)',
         'unit': 'Tage',
-        'description': 'Mittlere Dauer von Trockenperioden im Jahr. Eine Trockenperiode is eine Folge von mindestens sechs Trockentagen',
+        'description': 'Durchschnittliche Dauer von Trockenperioden im Jahr. Eine Trockenperiode is eine Folge von mindestens sechs Trockentagen',
         'colormap': 'Warm',
         'min': float('inf'),
         'max': -float('inf')
     }),
     ('drought_index_max-year', {
-        'var': 'Maximale Dauer einer Trockenperiode (Jahr)',
+        'var': 'Durchschnittlich längste Dauer einer Trockenperiode (Jahr)',
         'unit': 'Tage',
-        'description': 'Maximale Dauer einer Trockenperiode im Jahr. Eine Trockenperiode is eine Folge von mindestens sechs Trockentagen',
+        'description': 'Durchschnittlich längste Dauer einer Trockenperiode im Jahr. Eine Trockenperiode is eine Folge von mindestens sechs Trockentagen',
         'colormap': 'Warm',
         'min': float('inf'),
         'max': -float('inf')
     }),
     ('drought_index_qty-year', {
-        'var': 'Anzahl von Trockenperioden (Jahr)',
+        'var': 'Mittlere Anzahl von Trockenperioden (Jahr)',
         'unit': 'Trockenperioden',
-        'description': 'Anzahl von Trockenperioden im Jahr. Eine Trockenperiode is eine Folge von mindestens sechs Trockentagen',
+        'description': 'Mittlere Anzahl von Trockenperioden im Jahr. Eine Trockenperiode is eine Folge von mindestens sechs Trockentagen',
         'colormap': 'Warm',
         'min': float('inf'),
         'max': -float('inf')
@@ -332,9 +369,22 @@ def init() -> None:
         if 'huglin' in f:
             variable = 'huglin'
         elif 'vp_vernal' in f:
-            variable = 'vp_vernal'
+            if 'duration' in f:
+                variable = 'vp_vernal_duration'
+            elif 'begin' in f:
+                variable = 'vp_vernal_begin'
+            else:
+                print('Could not find correct vp_vernal variable for', f, '. skipping...')
+                continue
+        elif 'vp_frostvernal_pfrost' in f:
+            variable = 'vp_frostvernal_pfrost'
+        elif 'vp_frostvernal_dfrost' in f:
+            variable = 'vp_frostvernal_dfrost'
         elif 'tmin_lt_0' in f:
-            variable = 'tmin_lt_0'
+            if 'lastday' in f:
+                variable = 'tmin_lt_0_lastday'
+            else:
+                variable = 'tmin_lt_0'
         elif 'tmin_ge_20' in f:
             variable = 'tmin_ge_20'
         elif 'tmax_lt_0' in f:
@@ -344,7 +394,9 @@ def init() -> None:
         elif 'tmax_ge_30' in f:
             variable = 'tmax_ge_30'
         elif 'pre_lt_01mm' in f:
+            # Trockentage wurden letztendlich auch aus dem Klimabericht genommen
             variable = 'pre_lt_01mm'
+            continue
         elif 'pre_ge_01mm' in f:
             variable = 'pre_ge_01mm'
         elif 'pre_ge_10mm' in f:
