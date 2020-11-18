@@ -1,9 +1,0 @@
-flask
-flask-compress
-flask-caching
-flask-cors
-pandas
-gevent
-geojson
-SQLAlchemy
-tqdm
