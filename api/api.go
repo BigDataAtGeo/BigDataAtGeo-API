@@ -119,7 +119,8 @@ func (dataStore *DataStore) AllTimes(w http.ResponseWriter, r *http.Request, ps 
 			Values: values,
 		},
 	}
-
+    
+    writeHeader(w)
 	if err := json.NewEncoder(w).Encode(response); err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 	}
