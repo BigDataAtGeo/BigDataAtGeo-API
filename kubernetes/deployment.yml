@@ -1,16 +1,16 @@
-apiVersion: apps/v2
+apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: bdatgeo-rest-api
+  name: bdatgeo-rest-api-go
   namespace: bigdata-at-geo
 spec:
   selector:
     matchLabels:
-      app: bdatgeo-rest-api
+      app: bdatgeo-rest-api-go
   template:
     metadata:
       labels:
-        app: bdatgeo-rest-api
+        app: bdatgeo-rest-api-go
     spec:
       priorityClassName: infrastructure
       containers:
@@ -24,9 +24,9 @@ spec:
         resources:
           requests:
             memory: "6Gi"
-            cpu: "600m"
+            cpu: "1"
           limits:
-            memory: "6Gi"
+            memory: "10Gi"
             cpu: "1"
         ports:
         - containerPort: 5000

@@ -1,7 +1,7 @@
-apiVersion: v2
+apiVersion: v1
 kind: Service
 metadata:
-  name: bdatgeo-rest-api
+  name: bdatgeo-rest-api-go
   namespace: bigdata-at-geo
 spec:
   type: NodePort
@@ -11,4 +11,4 @@ spec:
     targetPort: 5000
     name: api-port
   selector:
-    app: bdatgeo-rest-api
+    app: bdatgeo-rest-api-go
