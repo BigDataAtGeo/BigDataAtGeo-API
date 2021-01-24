@@ -32,7 +32,7 @@ func (dataStore *DataStore) AllLocationsGrid(w http.ResponseWriter, r *http.Requ
 	scenario, scenarioValid := dataStore.Scenario2Id[ps.ByName("scenario")]
 
 	if !(varValid && scenarioValid && timeRangeValid) {
-		http.Error(w, "No data found for arguments", http.StatusNotFound)
+		http.Error(w, "no data found for arguments", http.StatusNotFound)
 		return
 	}
 
@@ -66,7 +66,7 @@ func (dataStore *DataStore) AllLocationsValues(w http.ResponseWriter, r *http.Re
 	scenario, scenarioValid := dataStore.Scenario2Id[ps.ByName("scenario")]
 
 	if !(varValid && scenarioValid && timeRangeValid) {
-		http.Error(w, "No data found for arguments", http.StatusNotFound)
+		http.Error(w, "no data found for arguments", http.StatusNotFound)
 		return
 	}
 
@@ -99,7 +99,7 @@ func (dataStore *DataStore) AllTimes(w http.ResponseWriter, r *http.Request, ps 
 	_, cellIdValid := dataStore.Coordinates[cellId]
 
 	if !(varValid && scenarioValid && cellIdValid) {
-		http.Error(w, "No data found for arguments", http.StatusNotFound)
+		http.Error(w, "no data found for arguments", http.StatusNotFound)
 		return
 	}
 
@@ -119,8 +119,8 @@ func (dataStore *DataStore) AllTimes(w http.ResponseWriter, r *http.Request, ps 
 			Values: values,
 		},
 	}
-    
-    writeHeader(w)
+
+	writeHeader(w)
 	if err := json.NewEncoder(w).Encode(response); err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 	}
