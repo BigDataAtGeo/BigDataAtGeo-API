@@ -1,7 +1,3 @@
-.directory
 .DS_Store
-**/__pycache__
-*.json
-*.csv
-*.txt
-main
+.mypy_cache/
+__pycache__/

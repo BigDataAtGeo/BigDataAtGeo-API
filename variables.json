@@ -1,0 +1,242 @@
+{
+  "pr-year": {
+    "var": "Mittlerer Jahresniederschlag",
+    "unit": "mm/qm",
+    "description": "Absolute Niederschlagssumme (Regen und Schnee) in mm",
+    "colormap": "YlGnBu",
+    "min": null,
+    "max": null
+  },
+  "pr-djf": {
+    "var": "Mittlerer Niederschlag (Winter)",
+    "unit": "mm/qm",
+    "description": "Absolute Niederschlagssumme (Regen und Schnee) in mm zwischen Dezember und Februar",
+    "colormap": "YlGnBu",
+    "min": null,
+    "max": null
+  },
+  "pr-mam": {
+    "var": "Mittlerer Niederschlag (Fr\u00fchjahr)",
+    "unit": "mm/qm",
+    "description": "Absolute Niederschlagssumme (Regen und Schnee) in mm zwischen M\u00e4rz und Mai",
+    "colormap": "YlGnBu",
+    "min": null,
+    "max": null
+  },
+  "pr-jja": {
+    "var": "Mittlerer Niederschlag (Sommer)",
+    "unit": "mm/qm",
+    "description": "Absolute Niederschlagssumme (Regen und Schnee) in mm zwischen Juni und August",
+    "colormap": "YlGnBu",
+    "min": null,
+    "max": null
+  },
+  "pr-son": {
+    "var": "Mittlerer Niederschlag (Herbst)",
+    "unit": "mm/qm",
+    "description": "Absolute Niederschlagssumme (Regen und Schnee) in mm zwischen September und November",
+    "colormap": "YlGnBu",
+    "min": null,
+    "max": null
+  },
+  "tas-year": {
+    "var": "Mittlere Jahrestemperatur",
+    "unit": "\u00b0C",
+    "description": "Mittlere Lufttemperatur (in 2 Meter H\u00f6he) in \u00b0C",
+    "colormap": "Turbo",
+    "min": null,
+    "max": null
+  },
+  "tas-djf": {
+    "var": "Mittlere Temperatur (Winter)",
+    "unit": "\u00b0C",
+    "description": "Mittlere Lufttemperatur (in 2 Meter H\u00f6he) in \u00b0C zwischen Dezember und Februar",
+    "colormap": "Turbo",
+    "min": null,
+    "max": null
+  },
+  "tas-mam": {
+    "var": "Mittlere Temperatur (Fr\u00fchjahr)",
+    "unit": "\u00b0C",
+    "description": "Mittlere Lufttemperatur (in 2 Meter H\u00f6he) in \u00b0C zwischen M\u00e4rz und Mai",
+    "colormap": "Turbo",
+    "min": null,
+    "max": null
+  },
+  "tas-jja": {
+    "var": "Mittlere Temperatur (Sommer)",
+    "unit": "\u00b0C",
+    "description": "Mittlere Lufttemperatur (in 2 Meter H\u00f6he) in \u00b0C zwischen Juni und August",
+    "colormap": "Turbo",
+    "min": null,
+    "max": null
+  },
+  "tas-son": {
+    "var": "Mittlere Temperatur (Herbst)",
+    "unit": "\u00b0C",
+    "description": "Mittlere Lufttemperatur (in 2 Meter H\u00f6he) in \u00b0C zwischen September und November",
+    "colormap": "Turbo",
+    "min": null,
+    "max": null
+  },
+  "vp_vernal_duration-year": {
+    "var": "Thermische Vegetationsperiode",
+    "unit": "Tage",
+    "description": " Die thermische Vegetationsperiode eines Jahres ist definiert als die Anzahl Tage zwischen\n<br>\n1.) Vegetationsbeginn:  Erstes Aufkommen von mindestens 6 aufeinanderfolgenden Tagen mit einer Durchschnittstemperatur \u00fcber 5\u00b0C und\n<br>\n2.) Vegetationsende:    Erstes Aufkommen von mindestens 6 aufeinanderfolgenden Tagen mit einer Durchschnittstemperatur unter 5\u00b0C im Winterhalbjahr. ",
+    "colormap": "Warm",
+    "min": null,
+    "max": null
+  },
+  "vp_vernal_begin-year": {
+    "var": "Beginn der thermischen Vegetationsperiode",
+    "unit": "Tage",
+    "description": " Die thermische Vegetationsperiode eines Jahres ist definiert als die Anzahl Tage zwischen\n<br>\n1.) Vegetationsbeginn:  Erstes Aufkommen von mindestens 6 aufeinanderfolgenden Tagen mit einer Durchschnittstemperatur \u00fcber 5\u00b0C und\n<br>\n2.) Vegetationsende:    Erstes Aufkommen von mindestens 6 aufeinanderfolgenden Tagen mit einer Durchschnittstemperatur unter 5\u00b0C im Winterhalbjahr. ",
+    "colormap": "Warm",
+    "min": null,
+    "max": null
+  },
+  "vp_frostvernal_pfrost-year": {
+    "var": "Sp\u00e4tfrostwahrscheinlichkeit",
+    "unit": "",
+    "description": "Mittlere Wahrscheinlichkeit f\u00fcr Sp\u00e4tfrost",
+    "colormap": "YlGnBu",
+    "min": null,
+    "max": null
+  },
+  "vp_frostvernal_dfrost-year": {
+    "var": "Sp\u00e4tfrostversatz",
+    "unit": "Tage",
+    "description": "Mittlerer zeitlicher Versatz von Sp\u00e4tfr\u00f6sten in Tagen seit Vegetationsbeginn",
+    "colormap": "YlGnBu",
+    "min": null,
+    "max": null
+  },
+  "huglin-year": {
+    "var": "Huglin Index",
+    "unit": "",
+    "description": " Ein f\u00fcr den Weinbau konzipierter W\u00e4rmesummenindex aus Tagesmittel- und Maximumtemperaturen im Sommerhalbjahr (April-September).\n<table class=\"table table-striped table-bordered\">\n<thead>\n<tr>\n<th><em>Huglin-Index H</em></th>\n<th><em>Rebsorten</em></th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>H &lt; 1500</td>\n<td>keine Anbauempfehlung</td>\n</tr>\n<tr>\n<td>1500 \u2264 H &lt; 1600</td>\n<td><a href=\"https://de.wikipedia.org/wiki/M%C3%BCller_Thurgau\">M\u00fcller Thurgau</a></td>\n</tr>\n<tr>\n<td>1600 \u2264 H &lt; 1700</td>\n<td><a href=\"https://de.wikipedia.org/wiki/Pinot_Blanc\">Pinot Blanc</a> ,  <a href=\"https://de.wikipedia.org/wiki/Grauer_Burgunder\">Grauer Burgunder</a> ,  <a href=\"https://de.wikipedia.org/wiki/Aligot%C3%A9\">Aligot\u00e9</a> ,  <a href=\"https://de.wikipedia.org/wiki/Gamay\">Gamay</a>  Noir,  <a href=\"https://de.wikipedia.org/wiki/Gew%C3%BCrztraminer\">Gew\u00fcrztraminer</a></td>\n</tr>\n<tr>\n<td>1700 \u2264 H &lt; 1800</td>\n<td><a href=\"https://de.wikipedia.org/wiki/Riesling\">Riesling</a> ,  <a href=\"https://de.wikipedia.org/wiki/Chardonnay\">Chardonnay</a> ,  <a href=\"https://de.wikipedia.org/wiki/Silvaner\">Silvaner</a> ,  <a href=\"https://de.wikipedia.org/wiki/Sauvignon_Blanc\">Sauvignon Blanc</a> ,  <a href=\"https://de.wikipedia.org/wiki/Pinot_Noir\">Pinot Noir</a> ,  <a href=\"https://de.wikipedia.org/wiki/Gr%C3%BCner_Veltliner\">Gr\u00fcner Veltliner</a></td>\n</tr>\n<tr>\n<td>1800 \u2264 H &lt; 1900</td>\n<td><a href=\"https://de.wikipedia.org/wiki/Cabernet_Franc\">Cabernet Franc</a></td>\n</tr>\n<tr>\n<td>1900 \u2264 H &lt; 2000</td>\n<td><a href=\"https://de.wikipedia.org/wiki/Chenin_Blanc\">Chenin Blanc</a> ,  <a href=\"https://de.wikipedia.org/wiki/Cabernet_Sauvignon\">Cabernet Sauvignon</a> ,  <a href=\"https://de.wikipedia.org/wiki/Merlot\">Merlot</a> ,  <a href=\"https://de.wikipedia.org/wiki/Semillion\">Semillion</a> ,  <a href=\"https://de.wikipedia.org/wiki/Welschriesling\">Welschriesling</a></td>\n</tr>\n<tr>\n<td>2000 \u2264 H &lt; 2100</td>\n<td><a href=\"https://de.wikipedia.org/wiki/Ugni_Blanc\">Ugni Blanc</a></td>\n</tr>\n<tr>\n<td>2100 \u2264 H &lt; 2200</td>\n<td><a href=\"https://de.wikipedia.org/wiki/Grenache\">Grenache</a> ,  <a href=\"https://de.wikipedia.org/wiki/Syrah\">Syrah</a> ,  <a href=\"https://de.wikipedia.org/wiki/Cinsaut\">Cinsaut</a></td>\n</tr>\n<tr>\n<td>2200 \u2264 H &lt; 2300</td>\n<td><a href=\"https://de.wikipedia.org/wiki/Carignan_(Rebsorte)\">Carignan</a></td>\n</tr>\n<tr>\n<td>2300 \u2264 H &lt; 2400</td>\n<td><a href=\"https://de.wikipedia.org/wiki/Aramon\">Aramon</a></td>\n</tr>\n</tbody>\n</table>\n\nQuelle f\u00fcr Tabelle:  <a href=\"https://www.pik-potsdam.de/research/publications/pikreports/.files/pr106.pdf\">Stock, M. et al. (2007) Perspektiven der Klima\u00e4nderung bis 2050 f\u00fcr den Weinbau in Deutschland (Klima 2050). Schlu\u00dfbericht zum FDW-Vorhaben Klima 2050. PIK Report 106.</a> ",
+    "colormap": "Warm",
+    "min": null,
+    "max": null
+  },
+  "tmin_lt_0-year": {
+    "var": "Frosttage",
+    "unit": "Tage",
+    "description": "Anzahl der Tage, an denen die minimale Lufttemperatur unter 0\u00b0C sinkt",
+    "colormap": "YlGnBu",
+    "min": null,
+    "max": null
+  },
+  "tmin_lt_0_lastday-year": {
+    "var": "Letzter Frosttag",
+    "unit": "Tage",
+    "description": "Durchschnittlich letzer Tag mit Frost im Fr\u00fchjahr",
+    "colormap": "YlGnBu",
+    "min": null,
+    "max": null
+  },
+  "tmax_lt_0-year": {
+    "var": "Eistage",
+    "unit": "Tage",
+    "description": "Anzahl der Tage, an denen die Lufttemperatur durchgehend unter 0\u00b0C liegt",
+    "colormap": "YlGnBu",
+    "min": null,
+    "max": null
+  },
+  "tmax_ge_25-year": {
+    "var": "Sommertage",
+    "unit": "Tage",
+    "description": "Anzahl der Tage, an denen die Lufttemperatur mindestens einmal 25\u00b0C erreicht oder \u00fcbersteigt",
+    "colormap": "Warm",
+    "min": null,
+    "max": null
+  },
+  "tmax_ge_30-year": {
+    "var": "Hitzetage",
+    "unit": "Tage",
+    "description": "Anzahl der Tage, an denen die Lufttemperatur mindestens einmal 30\u00b0C erreicht oder \u00fcbersteigt",
+    "colormap": "Warm",
+    "min": null,
+    "max": null
+  },
+  "tmin_ge_20-year": {
+    "var": "Tropenn\u00e4chte",
+    "unit": "Tage",
+    "description": "Anzahl der Tage, an denen die Lufttemperatur nicht unter 20\u00b0C f\u00e4llt",
+    "colormap": "Warm",
+    "min": null,
+    "max": null
+  },
+  "pre_ge_01mm-year": {
+    "var": "Regentage",
+    "unit": "Tage",
+    "description": "Anzahl der Tage, an denen mindestens 1 mm Niederschlag f\u00e4llt",
+    "colormap": "YlGnBu",
+    "min": null,
+    "max": null
+  },
+  "pre_ge_10mm-year": {
+    "var": "Regenreiche Tage",
+    "unit": "Tage",
+    "description": "Anzahl der Tage, an denen mindestens 10 mm Niederschlag f\u00e4llt",
+    "colormap": "YlGnBu",
+    "min": null,
+    "max": null
+  },
+  "pre_ge_20mm-year": {
+    "var": "Starkregentage",
+    "unit": "Tage",
+    "description": "Anzahl der Tage, an denen mindestens 20 mm Niederschlag f\u00e4llt",
+    "colormap": "YlGnBu",
+    "min": null,
+    "max": null
+  },
+  "martonne-year": {
+    "var": "D\u00fcrreindex nach de Martonne (Jahr)",
+    "unit": "mm/\u00b0C",
+    "description": "Vegetationsfeuchtema\u00df, das aus dem Verh\u00e4ltnis von Niederschlag zu Temperatur hervorgeht",
+    "colormap": "Warm",
+    "min": null,
+    "max": null
+  },
+  "martonne-amjjas": {
+    "var": "D\u00fcrreindex nach de Martonne (April - September)",
+    "unit": "mm/\u00b0C",
+    "description": "Vegetationsfeuchtema\u00df, das aus dem Verh\u00e4ltnis von Niederschlag zu Temperatur hervorgeht",
+    "colormap": "Warm",
+    "min": null,
+    "max": null
+  },
+  "martonne-ondjfm": {
+    "var": "D\u00fcrreindex nach de Martonne (Oktober - M\u00e4rz)",
+    "unit": "mm/\u00b0C",
+    "description": "Vegetationsfeuchtema\u00df, das aus dem Verh\u00e4ltnis von Niederschlag zu Temperatur hervorgeht",
+    "colormap": "Warm",
+    "min": null,
+    "max": null
+  },
+  "drought_index_avg-year": {
+    "var": "Durchschnittliche Dauer von Trockenperioden (Jahr)",
+    "unit": "Tage",
+    "description": "Durchschnittliche Dauer von Trockenperioden im Jahr. Eine Trockenperiode is eine Folge von mindestens sechs Trockentagen",
+    "colormap": "Warm",
+    "min": null,
+    "max": null
+  },
+  "drought_index_max-year": {
+    "var": "Durchschnittlich l\u00e4ngste Dauer einer Trockenperiode (Jahr)",
+    "unit": "Tage",
+    "description": "Durchschnittlich l\u00e4ngste Dauer einer Trockenperiode im Jahr. Eine Trockenperiode is eine Folge von mindestens sechs Trockentagen",
+    "colormap": "Warm",
+    "min": null,
+    "max": null
+  },
+  "drought_index_qty-year": {
+    "var": "Mittlere Anzahl von Trockenperioden (Jahr)",
+    "unit": "Trockenperioden",
+    "description": "Mittlere Anzahl von Trockenperioden im Jahr. Eine Trockenperiode is eine Folge von mindestens sechs Trockentagen",
+    "colormap": "Warm",
+    "min": null,
+    "max": null
+  }
+}
