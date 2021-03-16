@@ -8,3 +8,5 @@ geojson
 SQLAlchemy
 tqdm
 ujson
+requests
+pycrypto

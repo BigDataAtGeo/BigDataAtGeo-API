@@ -1,25 +1,35 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: bdatgeo-rest-api-go
+  name: bdatgeo-rest-api
   namespace: bigdata-at-geo
 spec:
   selector:
     matchLabels:
-      app: bdatgeo-rest-api-go
+      app: bdatgeo-rest-api
   template:
     metadata:
       labels:
-        app: bdatgeo-rest-api-go
+        app: bdatgeo-rest-api
     spec:
       priorityClassName: infrastructure
       containers:
-      - image: gitlab2.informatik.uni-wuerzburg.de:4567/dmir/bigdata-at-geo/bdatgeo-rest-api:2.0.0
+      - image: gitlab2.informatik.uni-wuerzburg.de:4567/dmir/bigdata-at-geo/bdatgeo-rest-api:3.0.0
         name: bdatgeo-rest-api
         imagePullPolicy: Always
         env:
           - name: BDATG_REST_API_PATH
             value: /data
+          - name: FIELD_CLIMATE_PUBLIC_KEY
+            valueFrom:
+              secretKeyRef:
+                name: fieldclimate-keys
+                key: PUBLICKEY
+          - name: FIELD_CLIMATE_PRIVATE_KEY
+            valueFrom:
+              secretKeyRef:
+                name: fieldclimate-keys
+                key: PRIVATEKEY
         command: [ "sh", "-c", "./run.sh" ]
         resources:
           requests:
