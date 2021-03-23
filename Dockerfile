@@ -5,6 +5,7 @@ RUN mkdir /app
 COPY *.py /app/
 COPY *.sh /app/
 COPY variables.json /app/
+COPY stations.json /app/
 COPY requirements.txt /app/
 
 RUN chown -R 1000:1000 /app

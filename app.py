@@ -28,7 +28,7 @@ CORS(app)
 app.json_encoder = util.UJSONEncoder
 
 data = util.load_data(path)
-scenarios, variables, timeranges = util.load_meta(data)
+scenarios, variables, timeranges, stations = util.load_meta(data)
 print("ready")
 
 
@@ -39,10 +39,18 @@ def fieldclimate_sources() -> Union[Response, Tuple]:
     auth = util.AuthHmacMetosGet(api_route, public_key, private_key)
     response = requests.get(fieldclimate_api + api_route, headers={'Accept': 'application/json'}, auth=auth).json()
 
-    # flask somehow cannot take lists directly
-    return jsonify([{"name": station["name"],
-                     "position": station["position"],
-                     "dates": station["dates"]} for station in response])
+    sources = []
+    for station in response:
+        sources.append({
+            "name": station["name"],
+            "position": station["position"],
+            "dates": station["dates"]
+        })
+        station_id = station["name"]["original"]
+        if station_id in stations and "text" in stations[station_id]:
+            sources[-1]["text"] = stations[station_id]["text"]
+
+    return jsonify(sources)
 
 
 @app.route("/fieldclimate/data/<station>/<group>/<from_ts>/<to_ts>")

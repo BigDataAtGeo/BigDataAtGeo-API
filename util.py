@@ -6,7 +6,7 @@ import ujson
 import requests
 import pandas as pd
 from datetime import datetime
-from typing import Tuple, List
+from typing import Tuple, List, Dict
 from flask.json import JSONEncoder
 from geojson import Feature, Polygon
 from Crypto.Hash import HMAC
@@ -160,12 +160,15 @@ def load_data(data_dir: str) -> pd.DataFrame:
     return all_data
 
 
-def load_meta(data_frame) -> Tuple[List, List, List]:
+def load_meta(data_frame) -> Tuple[List, List, List, Dict]:
     scenarios = data_frame.scenario.unique().sort_values().tolist()
     timeranges = data_frame.timerange.unique().sort_values().tolist()
 
     with open("variables.json", "r") as file:
         variables = ujson.load(file)
+    with open("stations.json", "r") as file:
+        stations = ujson.load(file)
+
 
     for variable, meta in variables.items():
         min_value = data_frame[data_frame.variable == variable].value.min().item()
@@ -177,4 +180,4 @@ def load_meta(data_frame) -> Tuple[List, List, List]:
 
     variables = [{"var_id": k, **v} for k, v in variables.items()]
 
-    return scenarios, variables, timeranges
+    return scenarios, variables, timeranges, stations
