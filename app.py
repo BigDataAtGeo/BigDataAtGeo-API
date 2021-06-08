@@ -3,15 +3,20 @@ import util
 import requests
 from typing import Dict, Union, List, Tuple
 from geojson import FeatureCollection
-from flask import Flask, Response, abort, jsonify
+from flask import Flask, Response, abort, jsonify, request, escape
 from flask_caching import Cache
 from flask_compress import Compress
 from flask_cors import CORS
+from rocketchat.api import RocketChatAPI
+from validate_email import validate_email
 
 path = os.environ["BDATG_REST_API_PATH"]
 public_key = os.environ["FIELD_CLIMATE_PUBLIC_KEY"]
 private_key = os.environ["FIELD_CLIMATE_PRIVATE_KEY"]
 fieldclimate_api = "https://api.fieldclimate.com/v1"
+
+username = os.environ["CHAT_USERNAME"]
+password = os.environ["CHAT_PASSWORD"]
 
 config = {
     "DEBUG": False,
@@ -29,6 +34,10 @@ app.json_encoder = util.UJSONEncoder
 
 data = util.load_data(path)
 scenarios, variables, timeranges, stations = util.load_meta(data)
+
+api = RocketChatAPI(settings={'username': username, 'password': password,
+                              'domain': 'https://chat.informatik.uni-wuerzburg.de'})
+
 print("ready")
 
 
@@ -104,3 +113,20 @@ def index() -> Union[Response, Dict]:
         "scenarios": scenarios,
         "timeranges": timeranges
     }
+
+@app.route('/feedback', methods = ['POST'])
+def feedback():
+   data = request.get_json()
+
+   name = escape(data['name'])
+   email = escape(data['email'])
+   feedback = data['feedback']
+
+   is_valid =  validate_email(email_address=email, check_format=True, check_smtp=False)
+   if is_valid or email == "":
+        message = "Name: " + name + "\n" +"Email: " + email + "\n" + "Feedback: " + feedback
+        # rytayLo3qcooGD8sd is the 'bigdata-at-geo-feedback' RoomID
+        api.send_message(message, 'rytayLo3qcooGD8sd') 
+        return jsonify(data) 
+
+   return Response(status=400, response="Email is not valid") 
