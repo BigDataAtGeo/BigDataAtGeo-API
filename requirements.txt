@@ -10,3 +10,5 @@ tqdm
 ujson
 requests
 pycrypto
+rocket-python
+py3-validate-email
