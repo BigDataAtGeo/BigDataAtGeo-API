@@ -1,0 +1,146 @@
+{
+    "images_amount": 3,
+    "profile1": {
+        "items": [
+        {
+            "horizont": "Ah-Bv",
+            "bodenart": "mittel schluffiger Ton",
+            "kfWert": "extrem hoch"
+        },
+        {
+            "horizont": "Bv-Tv",
+            "bodenart": "schwach schluffiger Ton",
+            "kfWert": "extrem hoch"
+        },
+        {
+            "horizont": "Tv-Cv",
+            "bodenart": "reiner Ton",
+            "kfWert": "-"
+        },
+        {
+            "horizont": "Cv",
+            "bodenart": "schwach schluffiger Ton",
+            "kfWert": "-"
+        }
+        ],
+        "info": [
+        {
+            "name": "Bodentyp",
+            "text": "Braunerde-Terra fusca"
+        },
+        {
+            "name": "Geologie",
+            "text": "Oberer Muschelkalk mo1+2"
+        },
+        {
+            "name": "Hangposition",
+            "text": "Mittelhang (339 m ü.NN.)"
+        },
+        {
+            "name": "Kurzbeschreibung",
+            "text": "Braunerde-Terra fusca aus Kalkstein-Lösungsverwitterung mit sehr hohem Steinanteil; hohe hydraulische Leitfähigkeit auf Grund eines ausgeprägten Polyedergefüges, gutes Wasserspeichervermögen; Profil UW 1 und UW 3 für Totholzversuch angelegt, Profil UW 1 ist nicht mit Totholz bedeckt"
+        },
+        {
+            "name": "Sensoren",
+            "text": "10 cm, 23 cm, 49 cm"
+        }
+        ]
+    },
+    "profile2": {
+        "items": [
+            {
+                "horizont": "Ah-Bv",
+                "bodenart": "mittel schluffiger Ton",
+                "kfWert": "extrem hoch"
+            },
+            {
+                "horizont": "Bv-Tv",
+                "bodenart": "stark schluffiger Ton",
+                "kfWert": "extrem hoch"
+            },
+            {
+                "horizont": "IIBv-Tv",
+                "bodenart": "schwach schluffiger Ton",
+                "kfWert": "extrem hoch"
+            },
+            {
+                "horizont": "IITv-Cv",
+                "bodenart": "schwach schluffiger Ton",
+                "kfWert": "-"
+            }
+            ],
+    "info": [
+        {
+            "name": "Bodentyp",
+            "text": "Braunerde-Terra fusca"
+        },
+        {
+            "name": "Geologie",
+            "text": "Oberer Muschelkalk mo1+2"
+        },
+        {
+            "name": "Hangposition",
+            "text": "Hangfuß oberhalb 3 m tief eingeschnittenem Gerinne (330 m ü.NN.))"
+        },
+        {
+            "name": "Kurzbeschreibung",
+            "text": "Braunerde-Terra fusca aus Kalkstein-Lösungsverwitterung mit sehr hohem Steinanteil; hohe hydraulische Leitfähigkeit auf Grund eines ausgeprägten Polyedergefüges, gutes Wasserspeichervermögen; guter Waldstandort da keine Staunässe"
+        },
+        {
+            "name": "Sensoren",
+            "text": "16 cm, 35 cm, 71 cm"
+        }
+    ]
+    },
+    "profile3": {
+        "items": [
+            {
+                "horizont": "Ah",
+                "bodenart": "mittel schluffiger Ton",
+                "kfWert": "extrem hoch"
+            },
+            {
+                "horizont": "Bv-Tv",
+                "bodenart": "schwach schluffiger Ton",
+                "kfWert": "-"
+            },
+            {
+                "horizont": "Tv-Cv<sub>1</sub>",
+                "bodenart": "schwach schluffiger Ton",
+                "kfWert": "-"
+            },
+            {
+                "horizont": "Tv-Cv<sub>2</sub>",
+                "bodenart": "schwach schluffiger Ton",
+                "kfWert": "-"
+            },
+            {
+                "horizont": "Cv",
+                "bodenart": "Steinlage",
+                "kfWert": "-"
+            }
+            ],
+        "info": [
+            {
+                "name": "Bodentyp",
+                "text": "Braunerde-Terra fusca"
+            },
+            {
+                "name": "Geologie",
+                "text": "Oberer Muschelkalk mo1+2"
+            },
+            {
+                "name": "Hangposition",
+                "text": "Mittelhang (339 m ü.NN.)"
+            },
+            {
+                "name": "Kurzbeschreibung",
+                "text": "Braunerde-Terra fusca aus Kalkstein-Lösungsverwitterung mit sehr hohem Steinanteil; hohe hydraulische Leitfähigkeit auf Grund eines ausgeprägten Polyedergefüges, gutes Wasserspeichervermögen; Profil UW 1 und UW 3 für Totholzversuch angelegt, Profil UW 3 ist mit Totholz bedeckt"
+            },
+            {
+                "name": "Sensoren",
+                "text": "10 cm, 23 cm, 69 cm"
+            }
+            ]
+    }
+}

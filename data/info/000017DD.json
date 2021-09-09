@@ -1,0 +1,100 @@
+{
+    "images_amount": 2,
+    "profile1": {
+        "items": [
+        {
+            "horizont": "R-Ap (M)",
+            "bodenart": "sandig-lehmiger Schluff",
+            "kfWert": "hoch"
+        },
+        {
+            "horizont": "IIfR-Ap",
+            "bodenart": "schwach lehmiger Sand",
+            "kfWert": "hoch"
+        },
+        {
+            "horizont": "IIR<sub>1</sub>",
+            "bodenart": "mittel sandiger Lehm",
+            "kfWert": "-"
+        },
+        {
+            "horizont": "IIR<sub>2</sub>",
+            "bodenart": "mittel sandiger Lehm",
+            "kfWert": "-"
+        }
+        ],
+        "info": [
+        {
+            "name": "Bodentyp",
+            "text": "Rigosol"
+        },
+        {
+            "name": "Geologie",
+            "text": "Unterer Buntsandstein suCD, Unterer Miltenberg-Sandstein"
+        },
+        {
+            "name": "Hangposition",
+            "text": "Mittelhang (197 m ü.NN.)"
+        },
+        {
+            "name": "Kurzbeschreibung",
+            "text": "Rigosol mit lehmigem Auftragsmaterial aus dem Muschelkalk in den oberen zwei Horizonten; hoher Anteil an Buntsandsteinblöcken; hohe hydraulische Leitfähigkeit. Das Auftragsmaterial wurde vom akutellen Besitzer zur Bodenverbesserung aufgebracht."
+        },
+        {
+            "name": "Sensoren",
+            "text": "15 cm, 40 cm, 63 cm"
+        }
+        ]
+    },
+    "profile2": {
+        "items": [
+            {
+                "horizont": "R-Ap<sub>1</sub> (M)",
+                "bodenart": "schluffiger Lehm",
+                "kfWert": "extrem hoch"
+            },
+            {
+                "horizont": "R-Ap<sub>2</sub> (M)",
+                "bodenart": "schwach sandiger Lehm",
+                "kfWert": "extrem hoch"
+            },
+            {
+                "horizont": "R-Ap<sub>3</sub> (M)",
+                "bodenart": "schwach lehmiger Sand",
+                "kfWert": "-"
+            },
+            {
+                "horizont": "IIR",
+                "bodenart": "schwach lehmiger Sand",
+                "kfWert": "-"
+            },
+            {
+                "horizont": "IIIR-Cv",
+                "bodenart": "schwach toniger Lehm",
+                "kfWert": "-"
+            }
+            ],
+    "info": [
+        {
+            "name": "Bodentyp",
+            "text": "Rigosol"
+        },
+        {
+            "name": "Geologie",
+            "text": "Unterer Buntsandstein suCD, Unterer Miltenberg-Sandstein"
+        },
+        {
+            "name": "Hangposition",
+            "text": "Mittelhang (185 m ü.NN)"
+        },
+        {
+            "name": "Kurzbeschreibung",
+            "text": "Rigosol mit lehmigem Auftragsmaterial aus dem Muschelkalk in den oberen zwei Horizonten, darunter rigolter  hoher Anteil an Buntsandsteinblöcken; extrem hohe hydraulische Leitfähigkeit.  Das Auftragsmaterial wurde vom akutellen Besitzer zur Bodenverbesserung aufgebracht."
+        },
+        {
+            "name": "Sensoren",
+            "text": "18 cm, 45 cm, 78 cm"
+        }
+    ]
+    }
+}

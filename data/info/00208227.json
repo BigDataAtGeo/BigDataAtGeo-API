@@ -1,0 +1,171 @@
+{
+    "images_amount": 3,
+    "profile1": {
+        "items": [
+        {
+            "horizont": "L",
+            "bodenart": "organische Auflage",
+            "kfWert": "-"
+        },
+        {
+            "horizont": "Ah",
+            "bodenart": "schwach lehmiger Sand",
+            "kfWert": "(sehr hoch)"
+        },
+        {
+            "horizont": "Aeh",
+            "bodenart": "schwach lehmiger Sand",
+            "kfWert": "-"
+        },
+        {
+            "horizont": "Bfv",
+            "bodenart": "schwach lehmiger Sand",
+            "kfWert": "-"
+        },
+        {
+            "horizont": "ICv<sub>1</sub>",
+            "bodenart": "schwach lehmiger Sand",
+            "kfWert": "-"
+        },
+        {
+            "horizont": "ICv<sub>2</sub>",
+            "bodenart": "schwach lehmiger Sand",
+            "kfWert": "-"
+        }
+        ],
+        "info": [
+        {
+            "name": "Bodentyp",
+            "text": "podsolierte Braunerde"
+        },
+        {
+            "name": "Geologie",
+            "text": "Buntsandstein sm"
+        },
+        {
+            "name": "Hangposition",
+            "text": "Oberhang (503 m ü.NN.)"
+        },
+        {
+            "name": "Kurzbeschreibung",
+            "text": "saure, leicht podsolierte Braunerde; hoher Anteil an Sandsteinblöcken; niedrige Wasserspeicherkapazität auf Grund der hohen hydraulsichen Leitfähigkeit"
+        },
+        {
+            "name": "Sensoren",
+            "text": "20 cm, 44 cm, 95 cm"
+        }
+        ]
+    },
+    "profile2": {
+        "items": [
+            {
+                "horizont": "Ah",
+                "bodenart": "mittel lehmiger Sand",
+                "kfWert": "(hoch)"
+            },
+            {
+                "horizont": "Bv<sub>1</sub>",
+                "bodenart": "mittel lehmiger Sand",
+                "kfWert": "(extrem hoch)"
+            },
+            {
+                "horizont": "Bv<sub>2</sub>",
+                "bodenart": "mittel lehmiger Sand",
+                "kfWert": "hoch"
+            },
+            {
+                "horizont": "Bv<sub>3</sub>",
+                "bodenart": "mittel lehmiger Sand",
+                "kfWert": "sehr hoch"
+            },
+            {
+                "horizont": "SwBv",
+                "bodenart": "stark lehmiger Sand",
+                "kfWert": "sehr hoch"
+            },
+            {
+                "horizont": "IICv-P (Sd)",
+                "bodenart": "mittel toniger Lehm",
+                "kfWert": "sehr gering"
+            },
+            {
+                "horizont": "IIICv-P (Sd)",
+                "bodenart": "schwach toniger Lehm",
+                "kfWert": "sehr gering"
+            }
+            ],
+    "info": [
+        {
+            "name": "Bodentyp",
+            "text": "Braunerde"
+        },
+        {
+            "name": "Geologie",
+            "text": "Buntsandstein sm"
+        },
+        {
+            "name": "Hangposition",
+            "text": "Mittelhang (489 m ü.NN.)"
+        },
+        {
+            "name": "Kurzbeschreibung",
+            "text": "saure Braunerde über Tonen des Buntsandsteins; Stauwasser über den anstehenden Tonen; niedrige Wasserspeicherkapazität auf Grund der hohen hydraulischen Leitfähigkeit"
+        },
+        {
+            "name": "Sensoren",
+            "text": "15 cm, 38 cm, 87 cm"
+        }
+    ]
+    },
+    "profile3": {
+        "items": [
+            {
+                "horizont": "Ah",
+                "bodenart": "mittel lehmiger Sand",
+                "kfWert": "extrem hoch"
+            },
+            {
+                "horizont": "Bv-Aeh",
+                "bodenart": "mittel lehmiger Sand",
+                "kfWert": "extrem hoch"
+            },
+            {
+                "horizont": "Bv",
+                "bodenart": "mittel lehmiger Sand",
+                "kfWert": "-"
+            },
+            {
+                "horizont": "IIBvCv",
+                "bodenart": "stark lehmiger Sand",
+                "kfWert": "-"
+            },
+            {
+                "horizont": "IIICv-P",
+                "bodenart": "sandig-toniger Lehm",
+                "kfWert": "-"
+            }
+            ],
+        "info": [
+            {
+                "name": "Bodentyp",
+                "text": "podsolierte Braunerde"
+            },
+            {
+                "name": "Geologie",
+                "text": "Buntsandstein sm"
+            },
+            {
+                "name": "Hangposition",
+                "text": "Mittelhang (476 m ü.NN.)"
+            },
+            {
+                "name": "Kurzbeschreibung",
+                "text": "saure, leicht podsolierte Braunerde; hoher Anteil an Sandsteinblöcken; niedrige Wasserspeicherkapazität auf Grund der hohen hydraulischen Leitfähigkeit"
+            },
+            {
+                "name": "Sensoren",
+                "text": "11 cm, 30 cm, 69 cm"
+            }
+            ]
+    }
+}

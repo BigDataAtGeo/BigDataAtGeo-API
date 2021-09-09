@@ -1,0 +1,6 @@
+Oberrimbach: 00205EA1
+Uniwald: 00208200
+Willmars: 00208227
+Obbach: 00206B4B
+Herchsheim: 000017E0
+Bürgstadt: 000017DD

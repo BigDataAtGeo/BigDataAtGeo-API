@@ -1,0 +1,106 @@
+{
+    "images_amount": 2,
+    "profile1": {
+        "items": [
+            {
+                "horizont": "Ap",
+                "bodenart": "stark toniger Schluff",
+                "kfWert": "hoch"
+            },
+            {
+                "horizont": "AI",
+                "bodenart": "stark toniger Schluff",
+                "kfWert": "hoch"
+            },
+            {
+                "horizont": "Bt",
+                "bodenart": "mittel schluffiger Ton",
+                "kfWert": "mittel"
+            },
+            {
+                "horizont": "Bvt",
+                "bodenart": "stark schluffiger Ton",
+                "kfWert": "gering"
+            },
+            {
+                "horizont": "ICn",
+                "bodenart": "stark toniger Schluff",
+                "kfWert": "gering"
+            }
+            ],
+        "info": [
+            {
+                "name": "Bodentyp",
+                "text": "Parabraunerde"
+            },
+            {
+                "name": "Geologie",
+                "text": "Löss (Pleistozän)"
+            },
+            {
+                "name": "Hangposition",
+                "text": "Ebene (300 m ü.NN.)"
+            },
+            {
+                "name": "Kurzbeschreibung",
+                "text": "Parabraunerde unter landwirtschaftlicher Nutzung; hohe Tonanreicherung im Bt-Horizont, anstehender Löss im lCn-Horizont; gutes Wasserspeichervermögen"
+            },
+            {
+                "name": "Sensoren",
+                "text": "20 cm, 62 cm, 101 cm"
+            }
+            ]
+    },
+    "profile2": {
+        "items": [
+            {
+                "horizont": "Ap<sub>1</sub>",
+                "bodenart": "stark toniger Schluff",
+                "kfWert": "hoch"
+            },
+            {
+                "horizont": "Ap<sub>2</sub>",
+                "bodenart": "stark toniger Schluff",
+                "kfWert": "mittel"
+            },
+            {
+                "horizont": "Bt",
+                "bodenart": "mittel schluffiger Ton",
+                "kfWert": "mittel"
+            },
+            {
+                "horizont": "BvCv",
+                "bodenart": "stark toniger Schluff",
+                "kfWert": "hoch"
+            },
+            {
+                "horizont": "ICc",
+                "bodenart": "stark toniger Schluff",
+                "kfWert": "mittel"
+            }
+        ],
+        "info": [
+            {
+                "name": "Bodentyp",
+                "text": "erodierte Parabraunerde"
+            },
+            {
+                "name": "Geologie",
+                "text": "Löss (Pleistozän)"
+            },
+            {
+                "name": "Hangposition",
+                "text": "Ebene (300 m ü.NN.)"
+            },
+            {
+                "name": "Kurzbeschreibung",
+                "text": "Durch landwirtschaftliche Nutzung erodierte Parabraunerde (Al-Horizont fehlt); hohe Tonanreicherung im Bt-Horizont, Kalkkonkretionen im anstehenden Löss des lCc-Horizonts; gutes Wasserspeichervermögen"
+            },
+            {
+                "name": "Sensoren",
+                "text": "10 cm, 35 cm, 62 cm"
+            }
+            ]
+    }
+    
+}

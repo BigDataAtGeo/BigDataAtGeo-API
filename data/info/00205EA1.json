@@ -1,0 +1,161 @@
+{
+    "images_amount": 3,
+    "profile1": {
+        "items": [
+        {
+            "horizont": "Ah",
+            "bodenart": "stark lehmiger Sand",
+            "kfWert": "sehr hoch"
+        },
+        {
+            "horizont": "Bv<sub>1</sub>",
+            "bodenart": "mittel lehmiger Sand",
+            "kfWert": "sehr hoch"
+        },
+        {
+            "horizont": "Bv<sub>2</sub>",
+            "bodenart": "mittel lehmiger Sand",
+            "kfWert": "extrem hoch"
+        },
+        {
+            "horizont": "Bv<sub>2</sub>-IICn",
+            "bodenart": "stark sandiger Lehm",
+            "kfWert": "sehr hoch"
+        },
+        {
+            "horizont": "IICn",
+            "bodenart": "sandig-toniger Lehm",
+            "kfWert": "sehr gering"
+        },
+        {
+            "horizont": "IICn",
+            "bodenart": "sandig-toniger Lehm",
+            "kfWert": "sehr gering"
+        }
+        ],
+        "info": [
+        {
+            "name": "Bodentyp",
+            "text": "Braunerde auf Blasensandstein"
+        },
+        {
+            "name": "Geologie",
+            "text": "Blasensandstein (Mittlerer Keuper)"
+        },
+        {
+            "name": "Hangposition",
+            "text": "Plateau (440 m ü.NN.)"
+        },
+        {
+            "name": "Kurzbeschreibung",
+            "text": "sehr saure, sandige Braunerde über Tonen des Blasensandstein, hoher Skelettanteil, schlechtes Wasserspeichervermögen auf Grund der hohen hydraulischen Leitfähigkeit"
+        },
+        {
+            "name": "Sensoren",
+            "text": "10 cm, 30 cm, 56 cm"
+        }
+        ]
+    },
+    "profile2": {
+        "items": [
+        {
+            "horizont": "Ah",
+            "bodenart": "stark lehmiger Sand",
+            "kfWert": "hoch"
+        },
+        {
+            "horizont": "Bv<sub>1</sub>",
+            "bodenart": "stark lehmiger Sand",
+            "kfWert": "sehr hoch"
+        },
+        {
+            "horizont": "Bv<sub>2</sub>",
+            "bodenart": "stark lehmiger Sand",
+            "kfWert": "sehr hoch"
+        },
+        {
+            "horizont": "IICv-P",
+            "bodenart": "lehmiger Ton",
+            "kfWert": "mittel"
+        }
+    ],
+    "info": [
+        {
+            "name": "Bodentyp",
+            "text": "Braunerde auf Blasensandstein"
+        },
+        {
+            "name": "Geologie",
+            "text": "Blasensandstein (Mittlerer Keuper)"
+        },
+        {
+            "name": "Hangposition",
+            "text": "Plateaurand/Hangschulter (430 m ü.NN.)"
+        },
+        {
+            "name": "Kurzbeschreibung",
+            "text": "sehr saure, sandige Braunerde über Tonen des Blasensandsteins; sehr hoher Skelettanteil, viele durch Solifluktion verlagerte Sandssteinblöcke; schlechtes Wasserspeichervermögen auf Grund der hohen hydraulischen Leitfähigkeit"
+        },
+        {
+            "name": "Sensoren",
+            "text": "10 cm, 25 cm, 41 cm"
+        }
+    ]
+    },
+    "profile3": {
+        "items": [
+        {
+            "horizont": "Ah",
+            "bodenart": "mittel lehmiger Sand",
+            "kfWert": "sehr hoch"
+        },
+        {
+            "horizont": "AhBv",
+            "bodenart": "mittel lehmiger Sand",
+            "kfWert": "sehr hoch"
+        },
+        {
+            "horizont": "Bv<sub>1</sub>",
+            "bodenart": "mittel lehmiger Sand",
+            "kfWert": "extrem hoch"
+        },
+        {
+            "horizont": "IIBv<sub>2</sub>",
+            "bodenart": "mittel lehmiger Sand",
+            "kfWert": "mittel"
+        },
+        {
+            "horizont": "IIBv<sub>3</sub>",
+            "bodenart": "stark lehmiger Sand",
+            "kfWert": "-"
+        },
+        {
+            "horizont": "IIICv-P",
+            "bodenart": "sandig-toniger Lehm",
+            "kfWert": "-"
+        }
+        ],
+        "info": [
+            {
+                "name": "Bodentyp",
+                "text": "Braunerde auf Lehrbergschichten"
+            },
+            {
+                "name": "Geologie",
+                "text": "Lehrbergschichten (Mittlerer Keuper)"
+            },
+            {
+                "name": "Hangposition",
+                "text": "Mittelhang (401 m ü.NN.)"
+            },
+            {
+                "name": "Kurzbeschreibung",
+                "text": "saure, sandige Braunerde in Hangkolluvium über tonigen Lehrbergschichten; sehr dicht gelagert; hydraulische Leitfähigkeit nimmt mit der Tiefe ab"
+            },
+            {
+                "name": "Sensoren",
+                "text": "10 cm, 41 cm, 64 cm"
+            }
+            ]
+    }
+}

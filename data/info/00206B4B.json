@@ -1,0 +1,171 @@
+{
+    "images_amount": 3,
+    "profile1": {
+        "items": [
+        {
+            "horizont": "Sw-Ap",
+            "bodenart": "mittel schluffiger Ton",
+            "kfWert": "sehr hoch"
+        },
+        {
+            "horizont": "Sw-Ap",
+            "bodenart": "schwach toniger Lehm",
+            "kfWert": "mittel"
+        },
+        {
+            "horizont": "Swd",
+            "bodenart": "mittel schluffiger Ton",
+            "kfWert": "-"
+        }
+        ],
+        "info": [
+        {
+            "name": "Bodentyp",
+            "text": "Pseudogley"
+        },
+        {
+            "name": "Geologie",
+            "text": "Unter Keuper ku1"
+        },
+        {
+            "name": "Hangposition",
+            "text": "Verflachung (337 m ü.NN.)"
+        },
+        {
+            "name": "Kurzbeschreibung",
+            "text": "flachgründiger Pseudogley über Tonstein; Stauwasser nach Niederschlägen, Trockenheit im Sommer"
+        },
+        {
+            "name": "Sensoren",
+            "text": "10 cm, 25 cm, 27 cm"
+        }
+        ]
+    },
+    "profile2": {
+        "items": [
+        {
+            "horizont": "Ap",
+            "bodenart": "schwach schluffiger Ton",
+            "kfWert": "sehr hoch"
+        },
+        {
+            "horizont": "M",
+            "bodenart": "schwach schluffiger Ton",
+            "kfWert": "-"
+        },
+        {
+            "horizont": "BvCv<sub>1</sub>",
+            "bodenart": "mittel schluffiger Ton",
+            "kfWert": "hoch"
+        },
+        {
+            "horizont": "BvCv<sub>2</sub>",
+            "bodenart": "mittel schluffiger Ton",
+            "kfWert": "sehr gering"
+        },
+        {
+            "horizont": "IICn<sub>1</sub>",
+            "bodenart": "Steinlage",
+            "kfWert": "-"
+        },
+        {
+            "horizont": "IICn<sub>2</sub>",
+            "bodenart": "mittel schluffiger Ton",
+            "kfWert": "-"
+        },
+        {
+            "horizont": "IICn<sub>3</sub>",
+            "bodenart": "Steinlage",
+            "kfWert": "-"
+        },
+        {
+            "horizont": "IICn<sub>4</sub>",
+            "bodenart": "mittel schluffiger Ton",
+            "kfWert": "-"
+        },
+        {
+            "horizont": "IICn<sub>5</sub>",
+            "bodenart": "Steinlage",
+            "kfWert": "-"
+        }
+    ],
+    "info": [
+        {
+            "name": "Bodentyp",
+            "text": "Kolluvisol über Braunerde"
+        },
+        {
+            "name": "Geologie",
+            "text": "Oberer Muschelkalk mo2 (Kalkbänke mit Mergel- u. Tonzwischenlagen)"
+        },
+        {
+            "name": "Hangposition",
+            "text": "Kuppe (341 m ü.NN.)"
+        },
+        {
+            "name": "Kurzbeschreibung",
+            "text": "Kolluvisol über Braunerde unter landwirtschaftlicher Nutzung; verwitterte Schluffsteine aus dem Muschelkalk im gesamten Profil; gutes Wasserspeichervermögen"
+        },
+        {
+            "name": "Sensoren",
+            "text": "15 cm, 39 cm, 60,5 cm"
+        }
+    ]
+    },
+    "profile3": {
+        "items": [
+            {
+                "horizont": "Ap",
+                "bodenart": "schwach schluffiger Ton",
+                "kfWert": "hoch"
+            },
+            {
+                "horizont": "M",
+                "bodenart": "schwach schluffiger Ton",
+                "kfWert": "gering"
+            },
+            {
+                "horizont": "BvCv",
+                "bodenart": "schwach schluffiger Ton",
+                "kfWert": "-"
+            },
+            {
+                "horizont": "Cv<sub>1</sub>",
+                "bodenart": "schwach schulffiger Ton",
+                "kfWert": "-"
+            },
+            {
+                "horizont": "Cv<sub>3</sub>",
+                "bodenart": "schwach schluffiger Ton",
+                "kfWert": "-"
+            },
+            {
+                "horizont": "Cv<sub>2</sub>",
+                "bodenart": "lehmiger Ton",
+                "kfWert": "-"
+            }
+        ],
+        "info": [
+            {
+                "name": "Bodentyp",
+                "text": "Kolluvisol"
+            },
+            {
+                "name": "Geologie",
+                "text": "Oberer Muschelkalk mo2, Grenzglaukonitbank"
+            },
+            {
+                "name": "Hangposition",
+                "text": "Mittelhang über Sattel (339 m ü.NN.)"
+            },
+            {
+                "name": "Kurzbeschreibung",
+                "text": "Kolluvisol über Braunerde unter landwirtschaftlicher Nutzung mit sehr hohem Steinanteil; verwirkte Bodenhorizonte durch Standort mit Akkumulation und Erosion sowie landwirtschaftliche Nutzung zu erklären; gutes Wasserspeichervermögen"
+            },
+            {
+                "name": "Sensoren",
+                "text": "11 cm, 30 cm, 59 cm"
+            }
+            ]
+    }
+}
