@@ -1,3 +1,8 @@
 .DS_Store
 .mypy_cache/
+.vscode/
 __pycache__/
+data/*.txt
+data2/
+kubernetes/chat_secret.yml
+kubernetes/secret.yml
