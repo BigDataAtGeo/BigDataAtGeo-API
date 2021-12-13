@@ -124,7 +124,7 @@ def feedback():
 
    is_valid =  validate_email(email_address=email, check_format=True, check_smtp=False)
    if is_valid or email == "":
-        message = "Name: " + name + "\n" +"Email: " + email + "\n" + "Feedback: " + feedback
+        message = "Name: `" + name + "`\n" +"Email: `" + email + "`\n" + "Feedback: `" + feedback + '`'
         # rytayLo3qcooGD8sd is the 'bigdata-at-geo-feedback' Room-ID
         api.send_message(message, 'rytayLo3qcooGD8sd') 
         return jsonify(data) 
