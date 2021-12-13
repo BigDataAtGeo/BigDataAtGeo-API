@@ -14,7 +14,8 @@ spec:
     spec:
       priorityClassName: infrastructure
       containers:
-      - image: gitlab2.informatik.uni-wuerzburg.de:4567/dmir/bigdata-at-geo/bdatgeo-rest-api:3.1.2
+#      - image: gitlab2.informatik.uni-wuerzburg.de:4567/dmir/bigdata-at-geo/bdatgeo-rest-api:3.1.2
+      - image: gitlab2.informatik.uni-wuerzburg.de:4567/dmir/bigdata-at-geo/bdatgeo-rest-api:3.2.1
         name: bdatgeo-rest-api
         imagePullPolicy: Always
         env:
@@ -32,6 +33,16 @@ spec:
               secretKeyRef:
                 name: fieldclimate-keys
                 key: PRIVATEKEY
+          - name: CHAT_USERNAME
+            valueFrom:
+              secretKeyRef:
+                name: chat-secret
+                key: CHAT_USERNAME
+          - name: CHAT_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: chat-secret
+                key: CHAT_PASSWORD
         command: [ "sh", "-c", "./run.sh" ]
         resources:
           requests:
